@@ -1,19 +1,25 @@
+#include <SDL2/SDL.h>
 #include "chip8.h"
 
-chip8 myChip8;
+Chip8 myChip8;
+
+void setupGraphics()
+{
+
+}
 
 int main(int argc, char **argv)
 {
     // Setup render system and register input callbacks
     setupGraphics();
-    setupInput();
+    //setupInput();
 
     // Initialize the Chip8 system and load the game into the memory
     myChip8.initialize();
-    myChip8.loadGame("pong");
+    //myChip8.loadGame("pong");
 
     // emulation loop
-    for(;;)
+    while(myChip8.running)
     {
         // emulate one cycle
         myChip8.emulateCycle();
@@ -21,11 +27,11 @@ int main(int argc, char **argv)
         // if the draw flag is set, update the screen
         if(myChip8.drawing)
         {
-            drawGraphics();
+            //drawGraphics();
         }
 
         // store key press state (press and release)
-        myChip8.setKeys();
+        //myChip8.setKeys();
     }
 
     return 0;

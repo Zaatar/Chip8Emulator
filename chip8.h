@@ -66,5 +66,4 @@ struct Chip8
     };
 };
 
-typedef struct Chip8 Chip8;
 #endif
